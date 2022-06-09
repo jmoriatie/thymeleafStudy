@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--
+mainㅢ header 는 통으로 base에 있는 값으로 바꾼다(replace)
+그 때, title, link 태그를 파라미터로 넘기면,
+base 에서는 이를 받아서, title 과 link 부분을 교체해주면서 불러온다
+약간 void 로 값 넘긴 느낌
+layoutMain(바꿀꺼) -> base(기본에서 바꿀꺼 받아서 수정) -> layoutMain(바뀐 base 출력)
+
+바꿀 경로 :: 바꿀 fragment
+
+레이아웃을 두고, 필요한 코드를 전달해서 살짝씩 변경하는 개념으로 볼 수 있음
+-->
+<head th:replace="template/layout/base :: common_header(~{::title},~{::link})">
+
+    <title>메인 타이틀</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/themes/smoothness/jquery-ui.css}">
+
+</head>
+<body> 메인 컨텐츠</body>
+</html>
